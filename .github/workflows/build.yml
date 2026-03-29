@@ -3,12 +3,16 @@ name: Build CI Main
 # Controls when the action will run. Triggers the workflow on pull requests
 # for the target branch
 on:
+  push:
   pull_request:
     branches: [ main ]
     paths-ignore: 
       - '.github/ISSUE_TEMPLATE/**'
       - 'docs/**'
       - 'specs/**'
+  workflow_dispatch:
+  release:
+    types: [published]
 
 jobs:
   build:
